@@ -1,6 +1,8 @@
-import { Accordion, Flex, Text } from "@chakra-ui/react";
+import { Accordion, Button, Flex, Text } from "@chakra-ui/react";
 import { FC, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
+
 import WordCard from "../components/WordCard";
 
 const DailyWord: FC = () => {
@@ -20,7 +22,22 @@ const DailyWord: FC = () => {
   if (!state) return <div>Loading...</div>;
 
   return (
-    <Flex flexDir="column" maxW={768} mx="auto" minH="100vh">
+    <Flex
+      position="relative"
+      flexDir="column"
+      maxW={768}
+      mx="auto"
+      minH="100vh"
+    >
+      <Button
+        m={4}
+        position="absolute"
+        variant="ghost"
+        colorScheme="transparent"
+        onClick={() => navigate("/")}
+      >
+        <FiArrowLeft />
+      </Button>
       <Flex
         fontSize={24}
         fontWeight="bold"
